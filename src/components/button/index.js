@@ -13,7 +13,7 @@ Button.defaultProps = {
     label: 'Click aqui'
 }
 
-const A = styled.a`
+const A = styled.div`
         margin:0;
         background: url(${img}) center center;
         background-size: cover;

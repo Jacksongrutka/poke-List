@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getPokemonDetail } from "../../services/getPokemonDetail";
-import { getEffect } from "../pokemon-ability-detail";
+import { GetAbilites } from "../pokemon-ability-detail";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import imgCard from '../../images/card-background.jpg'
@@ -62,18 +62,7 @@ const PokemonDetail = ({ name }) => {
                             </ul>
                         </ContainerMoves>
                         <ContainerAbilites>
-                            <ul>
-                                {
-                                    pokemonInfo.abilities.map((ability, index) => {
-                                        return (
-                                            <li key={index}>
-                                                <h3>{ability.ability.name} :</h3>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                            </li>
-                                        )
-                                    })
-                                }
-                            </ul>
+                            <GetAbilites skills={pokemonInfo.abilities}/>
                         </ContainerAbilites>
                     </ContainerSkills>
                 </InternCard>
@@ -205,7 +194,7 @@ const ContainerSkillsTitles = styled.div`
 `
 const ContainerMoves = styled.div`
         width: 100%;
-        display: block;
+        display: none;
     ul{
         padding: 2% 0% 1% 4%;
         width: 100%;
@@ -219,7 +208,7 @@ const ContainerMoves = styled.div`
     }
 `
 const ContainerAbilites = styled.div`
-        display: none;
+        display: block;
         width: 100%;
     ul{
         padding: 2% 0% 1% 4%;
