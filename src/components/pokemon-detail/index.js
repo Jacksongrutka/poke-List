@@ -6,8 +6,10 @@ import styled from "styled-components";
 import imgCard from '../../images/card-background.jpg'
 import { Button } from "../button";
 import img from "../../images/ImgFloresta.jpg"
+import { GetPokemonType } from "../getPokemonType";
 
 const PokemonDetail = ({ name }) => {
+
 
     const [pokemonInfo, setPokemonInfo] = useState({
         image: "",
@@ -36,7 +38,7 @@ const PokemonDetail = ({ name }) => {
                                     pokemonInfo.type.map((type, index) => {
                                         return (
                                             <li key={index}>
-                                                {type.type.name}
+                                                <GetPokemonType type={type.type.name}/>
                                             </li>
                                         )
                                     })
@@ -47,8 +49,8 @@ const PokemonDetail = ({ name }) => {
                     </InfoContainer>
                     <ContainerSkills>
                         <ContainerSkillsTitles>
-                            <p className="moves" id="moves"  onClick={select}>Moves</p>
-                            <p className="naoSelecionado" id="abilites"  onClick={select}>Abilites</p>
+                            <p  id="moves" >Moves</p>
+                            <p  id="abilites"  >Abilites</p>
                         </ContainerSkillsTitles>
                         <ContainerMoves>
                             <ul>
@@ -87,10 +89,6 @@ const PokemonDetail = ({ name }) => {
         fetchData()
 
     }, [])
-
-    const select = () =>{
-        
-    }
 
     return (
         <Info />
@@ -151,7 +149,7 @@ const Information = styled.div`
         align-items: baseline;
         justify-content: space-between;
         width: 85%;
-        margin-top: 2%;
+        margin-top: 4%;
     h1{
         text-transform: uppercase;
         font-family: 'Permanent Marker', cursive;
@@ -165,10 +163,11 @@ const Information = styled.div`
         display: flex;
     }
     ul li{
-        padding-right: 10px;
-        font-size: 25px;
-        padding-right: 10px;
-
+        width:70px;
+        padding-left: 10px;
+    }
+    ul li img{
+        width: 100%;
     }
 `
 const ContainerSkills = styled.div`
@@ -187,9 +186,6 @@ const ContainerSkillsTitles = styled.div`
     }
     p:hover{
         cursor: pointer;
-    }
-    .naoSelecionado{
-        background-color: #4c6cfde7;
     }
 `
 const ContainerMoves = styled.div`
