@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { getPokemonDetail } from "../../services/getPokemonDetail";
-import { GetAbilites } from "../pokemon-ability-detail";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import imgCard from '../../images/card-background.jpg'
 import { Button } from "../button";
 import img from "../../images/ImgFloresta.jpg"
 import { GetPokemonType } from "../getPokemonType";
+import { Skills } from "../skills";
 
 const PokemonDetail = ({ name }) => {
 
@@ -48,24 +48,7 @@ const PokemonDetail = ({ name }) => {
                         </Information>
                     </InfoContainer>
                     <ContainerSkills>
-                        <ContainerSkillsTitles>
-                            <p  id="moves" >Moves</p>
-                            <p  id="abilites"  >Abilites</p>
-                        </ContainerSkillsTitles>
-                        <ContainerMoves>
-                            <ul>
-                                {
-                                    pokemonInfo.moves.map((move, index) => {
-                                        return (
-                                            <li key={index}>{move.move.name}</li>
-                                        )
-                                    })
-                                }
-                            </ul>
-                        </ContainerMoves>
-                        <ContainerAbilites>
-                            <GetAbilites skills={pokemonInfo.abilities}/>
-                        </ContainerAbilites>
+                        <Skills abilites={pokemonInfo.abilities} moves={pokemonInfo.moves} />
                     </ContainerSkills>
                 </InternCard>
             </Card>
@@ -175,18 +158,6 @@ const ContainerSkills = styled.div`
         background-color: #fff;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
         margin-top:2%;  
-`
-const ContainerSkillsTitles = styled.div`
-        display: flex;
-        text-align: center;
-    p{
-        width: 50%;
-        font-size: 3rem;
-        padding: 0px;
-    }
-    p:hover{
-        cursor: pointer;
-    }
 `
 const ContainerMoves = styled.div`
         width: 100%;
