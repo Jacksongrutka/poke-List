@@ -159,44 +159,6 @@ const ContainerSkills = styled.div`
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
         margin-top:2%;  
 `
-const ContainerMoves = styled.div`
-        width: 100%;
-        display: none;
-    ul{
-        padding: 2% 0% 1% 4%;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        list-style: none;
-    }
-    li{
-        font-size: 1.5rem;
-        font-weight: 300;
-    }
-`
-const ContainerAbilites = styled.div`
-        display: block;
-        width: 100%;
-    ul{
-        padding: 2% 0% 1% 4%;
-    }
-    li{
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        width: 100%;
-        padding: 10px 15px 10px 0;
-    }
-    h3{
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #4c6cfde7;
-        align-self: center;
-    }
-    p{
-        font-size: 1.5rem;
-    }
-`
-
 
 
 

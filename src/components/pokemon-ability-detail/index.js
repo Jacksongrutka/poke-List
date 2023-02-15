@@ -30,8 +30,8 @@ const GetAbilites = (props) => {
         const fetchData = async () => {
             let container = []
             for (const abilite of props.skills) {
-                const abilityssss = await getAbilityDescription(abilite.ability.url)
-                container.push(abilityssss)
+                const ability = await getAbilityDescription(abilite.ability.url)
+                container.push(ability)
             }
             setPokemonAbility({
                 ability:[...container]
