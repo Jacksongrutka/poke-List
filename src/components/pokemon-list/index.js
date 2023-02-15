@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Button } from '../button/index.js'
-
-
+import { useContext } from 'react'
+import { ThemeContext } from '../../contexts/theme-contexts.js'
 
 const ListOfPokemons = () => {
 
@@ -14,6 +14,23 @@ const ListOfPokemons = () => {
     const [Count, setCount] = useState({
         pokemonsCount: 1
     })
+
+    const { theme } = useContext(ThemeContext)
+
+    const StyledLink = styled(Link)`
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 200px;
+        margin: 30px;
+        text-decoration: none;
+        color: ${theme.color};
+        transition: 0.3s ease-in-out;
+        border-radius: 40%;
+    :hover{
+        background-color: rgba( 00, 00, 00, 0.3);
+    }
+`
 
     const Section = () => {
         return (
@@ -122,19 +139,6 @@ const BtnSize = styled.a`
         width:170px;
         height:50px;
 `
-const StyledLink = styled(Link)`
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        width: 200px;
-        margin: 30px;
-        text-decoration: none;
-        color: #000;
-        transition: 0.3s ease-in-out;
-        border-radius: 40%;
-    :hover{
-        background-color: rgba( 69, 69, 69, 0.3);
-    }
-`
+
 
 export { ListOfPokemons }
